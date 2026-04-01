@@ -1,9 +1,9 @@
-const API_KEY = 'YOUR API KEY';
+const API_KEY = 'S9q5mgibXJoVZ8tOJIAIZItIz7e123bG2JxDjt6P';
 
 function initializeDatepicker() {
   const today = new Date();
   const formattedToday = formatDate(today);
-  console.log("Initializing date picker with today's date:", formattedToday); // Log the formatted today date
+  console.log("Initializing date picker with today's date:", formattedToday);
   document.getElementById('datePicker').max = formattedToday;
   document.getElementById('datePicker').value = formattedToday;
 }
@@ -46,6 +46,11 @@ function updateUI(data, date) {
 }
 
 async function loadAPODData() {
+  const date = getRandomDate();
+  await fetchAPODData(formatDate(date));
+}
+
+async function loadSelectedDateAPOD() {
   const randomDate = formatDate(getRandomDate());
   console.log('Loading APOD data for a random date:', randomDate); // Log the random date selection for APOD data loading
   await fetchAPODData(randomDate);
@@ -63,6 +68,3 @@ async function loadCurrentDateAPOD() {
   console.log('Loading APOD data for the current date:', currentDate); // Log the current date for APOD data loading
   await fetchAPODData(currentDate);
 }
-
-
-

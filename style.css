@@ -113,8 +113,7 @@ input[type="date"] {
 
 }
 
-input[type="date"]:hover,
-input[type="date"]:focus {
+input[type="date"]:hover, input[type="date"]:focus {
   border-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
@@ -125,8 +124,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-.card,
-.glass {
+.card, .glass{
   background: rgba(0, 0, 0, 0.16);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -153,16 +151,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     min-height: 300px;
   }
 }
-
+ 
 @media (min-width: 769px) {
   #apodImage {
     min-height: 400px;
   }
 }
 
-.navbar,
-.h3,
-.container {
+.navbar, .h3, .container {
   z-index: 1;
   color: white;
 }
