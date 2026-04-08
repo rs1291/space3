@@ -12,7 +12,7 @@ function getRandomDate() {
   const start = new Date('1995-06-16');
   const end = new Date();
   const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-  console.log('Generated random date:', formatDate(randomDate)); // Log the generated random date
+  console.log('Generated random date:', formatDate(randomDate)); 
   return randomDate;
 }
 
@@ -26,11 +26,11 @@ function formatDate(date) {
 async function fetchAPODData(date) {
   try {
     const endpoint = `https://api.nasa.gov/planetary/apod?date=${date}&api_key=${API_KEY}`;
-    console.log('Fetching APOD data for date:', date); // Log the date for which APOD data is being fetched
+    console.log('Fetching APOD data for date:', date);
     const response = await fetch(endpoint);
-    console.log('Full fetch response:', response); // Log the full fetch response
+    console.log('Full fetch response:', response);
     const data = await response.json();
-    console.log('Received APOD data:', data); // Log the received APOD data
+    console.log('Received APOD data:', data);
     updateUI(data, date);
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -38,7 +38,7 @@ async function fetchAPODData(date) {
 }
 
 function updateUI(data, date) {
-  console.log('Updating UI with APOD data for date:', date); // Log the UI update action
+  console.log('Updating UI with APOD data for date:', date); 
   document.getElementById('apodImage').style.backgroundImage = `url('${data.hdurl}')`;
   document.getElementById('apodDescription').textContent = data.explanation;
   document.getElementById('apodDate').textContent = `Date: ${date}`;
@@ -52,19 +52,19 @@ async function loadAPODData() {
 
 async function loadSelectedDateAPOD() {
   const randomDate = formatDate(getRandomDate());
-  console.log('Loading APOD data for a random date:', randomDate); // Log the random date selection for APOD data loading
+  console.log('Loading APOD data for a random date:', randomDate);
   await fetchAPODData(randomDate);
 }
 
 async function loadSelectedDateAPOD() {
   const selectedDate = document.getElementById('datePicker').value;
-  console.log('Loading APOD data for selected date:', selectedDate); // Log the selected date for APOD data loading
+  console.log('Loading APOD data for selected date:', selectedDate); 
   await fetchAPODData(selectedDate);
 }
 
 async function loadCurrentDateAPOD() {
   initializeDatepicker();
   const currentDate = formatDate(new Date());
-  console.log('Loading APOD data for the current date:', currentDate); // Log the current date for APOD data loading
+  console.log('Loading APOD data for the current date:', currentDate); 
   await fetchAPODData(currentDate);
 }
